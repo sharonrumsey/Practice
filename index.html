@@ -15,17 +15,57 @@
         color: green;
       }
     </style>
+    <script>
+      function RPS (playerPick) {
+        var compPick;
+        var result;
+        switch(Math.floor(Math.random() * 3)){
+          case 0: compPick="Rock";
+            break;
+          case 1: compPick="Paper";
+            break;
+          case 2: compPick="Scissors";
+            break;
+        }
+        if(playerPick == "Rock") {
+          if(compPick == "Rock") {
+            result = "Draw";
+          } else if(compPick == "Paper") {
+            result = "Computer WINS!";
+          } else { // computer picks Scissors
+            result = "You WIN!";
+          }
+        } else if(playerPick == "Paper") {
+          if(compPick == "Rock") {
+            result = "You WIN!";
+          } else if(compPick == "Paper") {
+            result = "Draw";
+          } else { // computer picks scissors
+            result = "Computer WINS!";
+          }
+        } else { // playerPick == Scissors
+          if(compPick == "Rock") {
+            result = "Computer WINS!";
+          } else if(compPick == "Paper") {
+            result = "You WIN!";
+          } else {
+            result = "Draw";
+          }
+        }
+        alert("You Picked " + playerPick + ", Computer Picks " + compPick + ": " + result);
+      };
+      
+    </script>
   </head>
-  <script>
-    
-
-  </script>
   <body>
     <header>
       <h1>Rock, Paper, Scissors</h1>
     </header>
     <main>
       <h2>First attempt at JavaScript for web game</h2>
+      <button type=button onClick="RPS('Rock');">Rock</button>
+      <button type=button onClick="RPS('Paper');">Paper</button>
+      <button type=button onClick="RPS('Scissors');">Scissors</button>
     </main>
     <footer>
       <p>&copy Rumsey 2015</p>
